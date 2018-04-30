@@ -49,7 +49,8 @@ InitSes = [1 13 27 38]; % ID for the first session of each animal
 nrep = 1000; % number of repetitions for the shuffle control model
 type = 'ITI'; % choose between 'Trial' and 'ITI'
 
-% load the ID of the cells retained after deleting the silent ones
+% load the ID of the cells retained after deleting the silent ones. Comment this if you don't have those IDs and 
+% uncomment below to identify the retained cells
 load(['Processed Data\' type '_RetainedCell'])
 
 for rep = 1:nrep
