@@ -17,6 +17,8 @@ ndata = 50;
 learnSes = [1 3 7 14 19 28 32 41 44 46];
 InitSes = [1 13 27 38 ndata];
 %************************************
+% Here identify the first session of each animal, the sessions before rule
+% change and the first rule change session of each animal
 rule = zeros(ndata,1);
 FirstRC = [];
 for k = 1:ndata
@@ -34,7 +36,8 @@ for s = 1:length(InitSes)-1
     BeforeRC = horzcat(BeforeRC, [InitSes(s):FirstRC(s)]); 
 end
 %************************************
-
+% Identification of Rule change and Other sessions. Then identification direction and 
+% cue rule sessions whitin the learning, rule-change and other sessions
 nsez = 5;
 RuleChange = [];
 NonLearn = [];
