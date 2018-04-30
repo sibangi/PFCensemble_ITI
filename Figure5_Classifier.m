@@ -234,9 +234,9 @@ for n = 1:length(ind_name)
     for cl = 1:length(ind)
         load([filepath num2str(TrType),'_Classifiers_',num2str(control(ind(cl),:)),'_',num2str(decode(ind(cl),:)),'.mat']);        
         subplot(2,3,cl)
-        errorbar(nanmean(SCORE_retro(NLearn1,:,ind_name(n))), ...
+        h1 = errorbar(nanmean(SCORE_retro(NLearn1,:,ind_name(n))), ...
             nansem(SCORE_retro(NLearn1,:,ind_name(n))),'o-','Color',Cother,'MarkerFaceColor',Cother,'MarkerSize',siz); hold on 
-        errorbar(nanmean(SCORE_retro_shuf(NLearn1,:,ind_name(n))), ...
+        h2 = errorbar(nanmean(SCORE_retro_shuf(NLearn1,:,ind_name(n))), ...
             nansem(SCORE_retro_shuf(NLearn1,:,ind_name(n))),'o-','Color',[.6 .6 .6],'MarkerFaceColor',[.6 .6 .6],'MarkerSize',siz); hold on
 
         plot([1,nsez],[0,0],'k--'); hold on
@@ -266,7 +266,7 @@ for n = 1:length(ind_name)
         
     end
     subplot(2,3,1)
-    legend([h1,h2],'Dir rule','Lig rule')
+    legend([h1,h2],'Data','Ctrl')
     ylabel([{names(ind_name(n),:)},{'Retrospective'},{'Dir rule'}],'FontSize',fontsize) 
     subplot(2,3,4)
     ylabel([{names(ind_name(n),:)},{'Retrospective'},{'Lit rule'}],'FontSize',fontsize) 
