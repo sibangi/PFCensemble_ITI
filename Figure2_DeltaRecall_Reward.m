@@ -1,4 +1,4 @@
-%% script to assemble sub-panels for Figure
+%% script to assemble sub-panels for Figure 
 % This code generate Figure 2 of Maggi et al., 2018 
 clear all;
 close all
@@ -30,12 +30,15 @@ for k = 1:ndata
     end
 end
 
+% Load Recall matrices and Residual recall matrices
 load([filepath 'ITI_Rmatrix_correlation.mat']);
 load([filepath 'ITI_ResidualRmatrixShuffleISI_correlation.mat']);
+
+% Select exmple session within the lerning sessions
 is = 9; % id for the learning sessions used as example session
 idSes = learnSes(is); % learning sessions used as example session
 
-
+% Find error and correct ITI (retrospectively) and reorganize Recall and Residual recall matrices
 er = find(Behav{idSes}(1:end-1,4)==0);
 cor = find(Behav{idSes}(1:end-1,4)==1);
 RRmat = ResidMat{idSes}(:,[er; cor]);
@@ -167,7 +170,6 @@ set(gca,'Box','off','TickDir','out','LineWidth',axlinewidth);
     reshape(RRmat(length(er)+1:end,length(er)+1:end),(size(RRmat,1)-length(er))^2,1));
 
 %% panel : Delta Recall between error-correct for learning, rule change and others
-
 before = cell(ndata,1);
 after = cell(ndata,1);
 hRecall = zeros(ndata,1);
