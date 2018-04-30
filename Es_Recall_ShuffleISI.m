@@ -46,7 +46,7 @@ thresh = 0; % parameter used in F_DeleteCell_spikingCell
 start = 1;
 learnSes = [1 3 7 14 19 28 32 41 44 46]; % ID for the learning sessions
 InitSes = [1 13 27 38]; % ID for the first session of each animal
-nrep = 1000; % number of repetitions for the shuffle control model
+nrep = 1; % number of repetitions for the shuffle control model. 
 type = 'ITI'; % choose between 'Trial' and 'ITI'
 
 % load the ID of the cells retained after deleting the silent ones. Comment this if you don't have those IDs and 
@@ -77,11 +77,11 @@ for rep = 1:nrep
 %         % Uncomment this if you want to identify the silent neurons  
 %         [TrData, num{k}, nallIDs{k}] = F_DeleteCell_spikingCell(TrData,length(CellType{k}),thresh);
 %         CellIndex = setdiff(1:length(CellType{k}),num{k});
-%         IDspk = CellIndex;    
+%         newIDspk{k} = CellIndex;    
 %         N = length(IDspk);
         % **********************************
 %         % Uncomment this if you want to compute the Recall matrix for the
-%         % shuffled spike trains
+%         % shuffled spike trains. Change the number of shuffling (nrep) as well.
 %         % Shuffling the ISI distribution of spike train and test the correlation
 %         [NewTrData] = F_ShuffleISISpikeTrain(TrData);
 %         clear TrData
