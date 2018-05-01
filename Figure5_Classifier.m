@@ -1,4 +1,4 @@
-% This script reproduce panels in Figure 5 of Maggi et al., 2018
+% This script reproduce panels in Figure 5 and Figure 6 of Maggi et al., 2018
 
 clear all
 close all
